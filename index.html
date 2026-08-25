@@ -19,7 +19,6 @@
       --text-light: #f1f2f6;
       --text-muted: #d1d8e0;
       
-      /* Fonte Rajdhani padronizada para todo o site */
       --font-main: 'Rajdhani', sans-serif;
     }
 
@@ -42,7 +41,7 @@
       font-family: var(--font-main);
     }
 
-    /* Regra geral de caixa mista para todos os títulos e elementos */
+    /* Garantia do uso de caixa mista em todos os textos */
     h1, h2, h3, h4, h5, p, span, a, div, .logo, .btn-discord, .card-title, .prize-amount, .step-number {
       font-family: var(--font-main) !important;
       text-transform: none !important;
@@ -232,7 +231,7 @@
     .card-desc {
       color: #ffffff;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* Info Cards */
@@ -277,7 +276,7 @@
 
     .info-card h3 {
       color: var(--accent-red);
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 12px;
     }
@@ -291,8 +290,8 @@
 
     .info-card p.subtext {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     /* Premiação */
@@ -320,7 +319,7 @@
 
     .prize-card h4 {
       color: var(--text-light);
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 15px;
     }
@@ -336,6 +335,12 @@
 
     .prize-card:hover .prize-amount {
       transform: scale(1.1);
+    }
+
+    .prize-card p.subtext {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     /* Passos de Inscrição */
@@ -395,8 +400,8 @@
 
     .step-info p {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 700;
     }
 
     .cta-container {
@@ -410,7 +415,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: var(--text-muted);
       font-size: 1.05rem;
-      font-weight: 600;
+      font-weight: 700;
       transition: color 0.3s ease;
     }
 
