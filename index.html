@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KNIGHTS CUP - Campeonato</title>
   
-  <!-- Fontes de Fallback (Google Fonts) -->
+  <!-- Fontes de suporte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rajdhani:wght@600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   
   <style>
-    /* Declaração da fonte Sequel 100 Black */
+    /* Declaração nativa para Sequel 100 Black */
     @font-face {
-      font-family: 'Sequel 100 Black';
-      src: url('Sequel100Black-95.woff2') format('woff2'),
-           url('Sequel100Black-95.woff') format('woff'),
-           url('Sequel100Black-95.ttf') format('truetype');
+      font-family: 'Sequel 100';
+      src: url('Sequel100Black.woff2') format('woff2'),
+           url('Sequel100Black.woff') format('woff'),
+           url('Sequel100Black.ttf') format('truetype'),
+           url('sequel100.ttf') format('truetype');
       font-weight: 900;
       font-style: normal;
       font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Sequel 100 Black';
+      src: url('Sequel100Black.woff2') format('woff2'),
+           url('Sequel100Black.ttf') format('truetype');
+      font-weight: 900;
     }
 
     :root {
@@ -30,7 +38,8 @@
       --text-light: #f1f2f6;
       --text-muted: #d1d8e0;
       
-      --font-title: 'Sequel 100 Black', 'Archivo Black', 'Syne', sans-serif;
+      /* Fonte Sequel 100 definida como principal */
+      --font-title: 'Sequel 100 Black', 'Sequel 100', 'Archivo Black', 'Syne', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
     }
 
@@ -50,6 +59,14 @@
       color: var(--text-light);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* Aplicação da Sequel 100 em todos os títulos e elementos em destaque */
+    h1, h2, h3, h4, h5, .logo, .btn-discord, .card-title, .prize-amount, .step-number {
+      font-family: var(--font-title) !important;
+      font-weight: 900 !important;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
     }
 
     /* Animação do Fundo Hero */
@@ -89,11 +106,7 @@
     }
 
     .logo {
-      font-family: var(--font-title);
       font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      text-transform: uppercase;
     }
 
     .logo span {
@@ -107,7 +120,7 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
-    /* Botão Neon Animado */
+    /* Botão Neon Animado com Sequel 100 */
     .btn-discord {
       position: relative;
       display: inline-block;
@@ -115,12 +128,8 @@
       background-color: var(--accent-red);
       color: #fff;
       text-decoration: none;
-      font-family: var(--font-title);
       font-size: 0.85rem;
-      font-weight: 900;
       border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
       box-shadow: 0 0 15px rgba(255, 30, 39, 0.4);
       transition: all 0.3s ease;
       overflow: hidden;
@@ -159,12 +168,9 @@
     }
 
     .hero h1 {
-      font-family: var(--font-title);
       font-size: 3.8rem;
-      font-weight: 900;
       margin-bottom: 15px;
       letter-spacing: -1px;
-      text-transform: uppercase;
       text-shadow: 0 0 25px rgba(255, 30, 39, 0.6);
       animation: fadeInDown 1s ease-out;
     }
@@ -183,17 +189,13 @@
     }
 
     .section-title {
-      font-family: var(--font-title);
       text-align: center;
       font-size: 2.2rem;
-      font-weight: 900;
       color: var(--accent-red);
-      letter-spacing: -0.5px;
       margin: 70px 0 30px;
-      text-transform: uppercase;
     }
 
-    /* Cards Tops */
+    /* Cards Topo */
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -238,25 +240,18 @@
     }
 
     .card-title {
-      font-family: var(--font-title);
       font-size: 1.15rem;
       color: var(--accent-red);
       margin-bottom: 8px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      text-transform: uppercase;
     }
 
     .card-desc {
       color: #ffffff;
       font-size: 1.05rem;
       font-weight: 600;
-      letter-spacing: 0.2px;
     }
 
-    /* Animações e Efeitos da Parte Inferior (Informaçoes, Premiação e Passos) */
-    
-    /* Info Cards Animados */
+    /* Info Cards */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -297,13 +292,9 @@
     }
 
     .info-card h3 {
-      font-family: var(--font-title);
       color: var(--accent-red);
       font-size: 1.15rem;
-      font-weight: 900;
       margin-bottom: 12px;
-      letter-spacing: -0.5px;
-      text-transform: uppercase;
     }
 
     .info-card p.highlight {
@@ -319,7 +310,7 @@
       font-weight: 500;
     }
 
-    /* Premiação Animada */
+    /* Premiação */
     .prize-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -334,8 +325,6 @@
       padding: 30px;
       text-align: center;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
     }
 
     .prize-card:hover {
@@ -345,18 +334,13 @@
     }
 
     .prize-card h4 {
-      font-family: var(--font-title);
       color: var(--text-light);
       font-size: 1.1rem;
       margin-bottom: 15px;
-      letter-spacing: -0.5px;
-      text-transform: uppercase;
     }
 
     .prize-amount {
-      font-family: var(--font-title);
       font-size: 2.5rem;
-      font-weight: 900;
       color: var(--accent-red);
       margin-bottom: 10px;
       text-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
@@ -367,7 +351,7 @@
       transform: scale(1.1);
     }
 
-    /* Passos de Inscrição Animados */
+    /* Passos de Inscrição */
     .steps-container {
       max-width: 800px;
       margin: 0 auto 60px;
@@ -395,7 +379,6 @@
     }
 
     .step-number {
-      font-family: var(--font-title);
       background-color: var(--accent-red);
       color: #fff;
       width: 48px;
@@ -405,7 +388,6 @@
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      font-weight: 900;
       flex-shrink: 0;
       box-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
       transition: all 0.4s ease;
@@ -418,7 +400,6 @@
 
     .step-info h5 {
       font-size: 1.2rem;
-      font-weight: 700;
       color: #fff;
       margin-bottom: 3px;
     }
@@ -447,7 +428,7 @@
       color: #fff;
     }
 
-    /* Keyframes Globais */
+    /* Keyframes */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -458,7 +439,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Classe de animação ao rolar a página (Scroll Reveal via CSS) */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -588,7 +568,6 @@
     <p>&copy; 2026 KNIGHTS CUP. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script para ativar animação ao rolar a tela -->
   <script>
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal');
@@ -604,7 +583,7 @@
     }
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Ativa na carga inicial da página
+    revealOnScroll();
   </script>
 
 </body>
