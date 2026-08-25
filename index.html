@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KNIGHTS CUP - Campeonato</title>
   
-  <!-- Fontes de Fallback (Google Fonts com estilo neogrotesco ultra-bold similar) -->
+  <!-- Fontes de Fallback (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rajdhani:wght@600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   
   <style>
-    /* Declaração da fonte Sequel 100 Black (caso tenha o arquivo no repositório) */
+    /* Declaração da fonte Sequel 100 Black */
     @font-face {
       font-family: 'Sequel 100 Black';
       src: url('Sequel100Black-95.woff2') format('woff2'),
@@ -30,7 +30,6 @@
       --text-light: #f1f2f6;
       --text-muted: #d1d8e0;
       
-      /* Aplicação da fonte Sequel 100 Black para títulos */
       --font-title: 'Sequel 100 Black', 'Archivo Black', 'Syne', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
     }
@@ -42,6 +41,10 @@
       font-family: var(--font-body);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-dark);
       color: var(--text-light);
@@ -49,7 +52,7 @@
       overflow-x: hidden;
     }
 
-    /* Animação do Fundo */
+    /* Animação do Fundo Hero */
     .hero-bg-animated {
       position: relative;
     }
@@ -104,7 +107,7 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
-    /* Botão Neon Animado com Sequel 100 Black */
+    /* Botão Neon Animado */
     .btn-discord {
       position: relative;
       display: inline-block;
@@ -190,7 +193,7 @@
       text-transform: uppercase;
     }
 
-    /* Cards com Sequel 100 Black nos Títulos */
+    /* Cards Tops */
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -251,7 +254,9 @@
       letter-spacing: 0.2px;
     }
 
-    /* Info Cards */
+    /* Animações e Efeitos da Parte Inferior (Informaçoes, Premiação e Passos) */
+    
+    /* Info Cards Animados */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -266,12 +271,29 @@
       padding: 25px;
       text-align: center;
       transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 30, 39, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .info-card:hover::before {
+      left: 100%;
     }
 
     .info-card:hover {
       border-color: var(--accent-red);
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(255, 30, 39, 0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(255, 30, 39, 0.3);
     }
 
     .info-card h3 {
@@ -297,7 +319,7 @@
       font-weight: 500;
     }
 
-    /* Premiação */
+    /* Premiação Animada */
     .prize-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -311,13 +333,15 @@
       border-radius: 12px;
       padding: 30px;
       text-align: center;
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
     }
 
     .prize-card:hover {
-      transform: scale(1.04);
+      transform: scale(1.05) translateY(-5px);
       border-color: var(--accent-red);
-      box-shadow: 0 0 30px rgba(255, 30, 39, 0.4);
+      box-shadow: 0 0 35px rgba(255, 30, 39, 0.5);
     }
 
     .prize-card h4 {
@@ -336,9 +360,14 @@
       color: var(--accent-red);
       margin-bottom: 10px;
       text-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
+      transition: transform 0.3s ease;
     }
 
-    /* Steps */
+    .prize-card:hover .prize-amount {
+      transform: scale(1.1);
+    }
+
+    /* Passos de Inscrição Animados */
     .steps-container {
       max-width: 800px;
       margin: 0 auto 60px;
@@ -356,20 +385,21 @@
       align-items: center;
       gap: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .step-item:hover {
       border-color: var(--accent-red);
-      transform: translateX(8px);
+      transform: translateX(12px);
+      box-shadow: -5px 0 20px rgba(255, 30, 39, 0.25);
     }
 
     .step-number {
       font-family: var(--font-title);
       background-color: var(--accent-red);
       color: #fff;
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -377,7 +407,13 @@
       font-size: 1.3rem;
       font-weight: 900;
       flex-shrink: 0;
-      box-shadow: 0 0 10px rgba(255, 30, 39, 0.4);
+      box-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
+      transition: all 0.4s ease;
+    }
+
+    .step-item:hover .step-number {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 30, 39, 0.9);
     }
 
     .step-info h5 {
@@ -404,8 +440,14 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: var(--text-muted);
       font-size: 0.95rem;
+      transition: color 0.3s ease;
     }
 
+    footer:hover {
+      color: #fff;
+    }
+
+    /* Keyframes Globais */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -414,6 +456,18 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Classe de animação ao rolar a página (Scroll Reveal via CSS) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -432,7 +486,7 @@
     </section>
   </div>
 
-  <section class="cards-container">
+  <section class="cards-container reveal">
     <div class="card">
       <div class="card-img-wrapper">
         <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Espírito Esportivo">
@@ -464,7 +518,7 @@
     </div>
   </section>
 
-  <section id="info" class="info-grid">
+  <section id="info" class="info-grid reveal">
     <div class="info-card">
       <h3>Plataforma</h3>
       <p class="highlight">XPlay.GG</p>
@@ -484,8 +538,8 @@
     </div>
   </section>
 
-  <h2 id="premiacao" class="section-title">PREMIAÇÃO</h2>
-  <section class="prize-container">
+  <h2 id="premiacao" class="section-title reveal">PREMIAÇÃO</h2>
+  <section class="prize-container reveal">
     <div class="prize-card">
       <h4>🥇 1º Lugar - Campeão</h4>
       <div class="prize-amount">R$ 250,00</div>
@@ -499,8 +553,8 @@
     </div>
   </section>
 
-  <h2 id="inscricao" class="section-title">COMO FAZER A INSCRIÇÃO</h2>
-  <section class="steps-container">
+  <h2 id="inscricao" class="section-title reveal">COMO FAZER A INSCRIÇÃO</h2>
+  <section class="steps-container reveal">
     <div class="step-item">
       <div class="step-number">1</div>
       <div class="step-info">
@@ -526,13 +580,32 @@
     </div>
   </section>
 
-  <div class="cta-container">
+  <div class="cta-container reveal">
     <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">INSCREVER MINHA EQUIPE</a>
   </div>
 
   <footer>
     <p>&copy; 2026 KNIGHTS CUP. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Script para ativar animação ao rolar a tela -->
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Ativa na carga inicial da página
+  </script>
 
 </body>
 </html>
