@@ -12,7 +12,6 @@
       --accent-red-hover: #ff4d54;
       --text-light: #f1f2f6;
       --text-muted: #a4b0be;
-      --discord-color: #ff1e27;
     }
 
     * {
@@ -65,7 +64,7 @@
 
     .hero {
       text-align: center;
-      padding: 100px 20px 80px;
+      padding: 80px 20px 60px;
       background: radial-gradient(circle at center, rgba(255, 30, 39, 0.15) 0%, transparent 70%);
     }
 
@@ -103,11 +102,21 @@
       box-shadow: 0 0 25px rgba(255, 30, 39, 0.7);
     }
 
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent-red);
+      letter-spacing: 2px;
+      margin: 60px 0 30px;
+      text-transform: uppercase;
+    }
+
+    /* Cards Principais com Fotos */
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      padding: 40px 8% 80px;
+      padding: 0 8% 40px;
     }
 
     .card {
@@ -116,18 +125,17 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.4s ease;
-      position: relative;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       border-color: var(--accent-red);
       box-shadow: 0 10px 30px rgba(255, 30, 39, 0.3);
     }
 
     .card-img-wrapper {
       width: 100%;
-      height: 200px;
+      height: 180px;
       overflow: hidden;
     }
 
@@ -143,20 +151,152 @@
     }
 
     .card-content {
-      padding: 25px;
+      padding: 20px;
+      text-align: center;
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--accent-red);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 700;
-      letter-spacing: 1px;
     }
 
     .card-desc {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+    }
+
+    /* Grade de Informações Gerais */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 8% 40px;
+    }
+
+    .info-card {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 15px rgba(255, 30, 39, 0.2);
+    }
+
+    .info-card h3 {
+      color: var(--accent-red);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .info-card p.highlight {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .info-card p.subtext {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Seção Premiação */
+    .prize-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 0 8% 40px;
+    }
+
+    .prize-card {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(255, 30, 39, 0.3);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .prize-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 30, 39, 0.3);
+    }
+
+    .prize-card h4 {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .prize-amount {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 30, 39, 0.4);
+    }
+
+    /* Passos de Inscrição */
+    .steps-container {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .step-item {
+      background-color: var(--bg-card);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: border-color 0.3s ease;
+    }
+
+    .step-item:hover {
+      border-color: var(--accent-red);
+    }
+
+    .step-number {
+      background-color: var(--accent-red);
+      color: #fff;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-info h5 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .step-info p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin-bottom: 80px;
     }
 
     footer {
@@ -182,9 +322,10 @@
   <section class="hero">
     <h1>KNIGHTS CUP CS2</h1>
     <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
-    <a href="#" class="btn-discord">GARANTIR VAGA NO DISCORD</a>
+    <a href="#inscricao" class="btn-discord">GARANTIR VAGA NO DISCORD</a>
   </section>
 
+  <!-- Cards com Foto -->
   <section class="cards-container">
     <div class="card">
       <div class="card-img-wrapper">
@@ -216,6 +357,75 @@
       </div>
     </div>
   </section>
+
+  <!-- Seção Informações (Plataforma, Formato, Inscrição) -->
+  <section id="info" class="info-grid">
+    <div class="info-card">
+      <h3>Plataforma</h3>
+      <p class="highlight">XPlay.GG</p>
+      <p class="subtext">Servidores de Alta Performance e Anticheat Garantido</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Formato</h3>
+      <p class="highlight">5v5 Competitivo</p>
+      <p class="subtext">Fase de Grupos + Fase Eliminatória<br>🎥 Transmissão Ao Vivo das Partidas</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Inscrição</h3>
+      <p class="prize-amount" style="font-size: 1.8rem;">R$ 25,00</p>
+      <p class="subtext">Valor total por equipe (5 Jogadores + Reservas)</p>
+    </div>
+  </section>
+
+  <!-- Seção Premiação -->
+  <h2 id="premiacao" class="section-title">PREMIAÇÃO</h2>
+  <section class="prize-container">
+    <div class="prize-card">
+      <h4>🥇 1º Lugar - Campeão</h4>
+      <div class="prize-amount">R$ 250,00</div>
+      <p class="subtext">Premiação em dinheiro direto via PIX + Destaque oficial de campeão.</p>
+    </div>
+
+    <div class="prize-card">
+      <h4>🥈 2º Lugar - Vice</h4>
+      <div class="prize-amount" style="font-size: 1.8rem;">Vaga Garantida</div>
+      <p class="subtext">Inscrição 100% gratuita para disputar a próxima edição da Knights Cup.</p>
+    </div>
+  </section>
+
+  <!-- Seção Como Fazer a Inscrição -->
+  <h2 id="inscricao" class="section-title">COMO FAZER A INSCRIÇÃO</h2>
+  <section class="steps-container">
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <div class="step-info">
+        <h5>Acesse nosso Discord Oficial</h5>
+        <p>Entre no servidor do campeonato clicando no botão abaixo.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <div class="step-info">
+        <h5>Abra um Ticket de Inscrição</h5>
+        <p>Vá até a aba de inscrições e abra um chamado privado com a organização.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <div class="step-info">
+        <h5>Efetue o PIX de R$ 25,00</h5>
+        <p>Envie o comprovante de pagamento e os dados do seu time para confirmar sua vaga.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-container">
+    <a href="#" class="btn-discord">INSCREVER MINHA EQUIPE</a>
+  </div>
 
   <footer>
     <p>&copy; 2026 KNIGHTS CUP. Todos os direitos reservados.</p>
