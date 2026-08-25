@@ -11,23 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rajdhani:wght@600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   
   <style>
-    /* Declaração nativa para Sequel 100 Black */
+    /* Declaração exata para o arquivo Sequel100Black-95.ttf */
     @font-face {
-      font-family: 'Sequel 100';
-      src: url('Sequel100Black.woff2') format('woff2'),
-           url('Sequel100Black.woff') format('woff'),
-           url('Sequel100Black.ttf') format('truetype'),
-           url('sequel100.ttf') format('truetype');
+      font-family: 'Sequel 100 Black';
+      src: url('Sequel100Black-95.ttf') format('truetype');
       font-weight: 900;
       font-style: normal;
       font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Sequel 100 Black';
-      src: url('Sequel100Black.woff2') format('woff2'),
-           url('Sequel100Black.ttf') format('truetype');
-      font-weight: 900;
     }
 
     :root {
@@ -39,7 +29,7 @@
       --text-muted: #d1d8e0;
       
       /* Fonte Sequel 100 definida como principal */
-      --font-title: 'Sequel 100 Black', 'Sequel 100', 'Archivo Black', 'Syne', sans-serif;
+      --font-title: 'Sequel 100 Black', 'Archivo Black', 'Syne', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
     }
 
@@ -61,7 +51,7 @@
       overflow-x: hidden;
     }
 
-    /* Aplicação da Sequel 100 em todos os títulos e elementos em destaque */
+    /* Aplicação da Sequel 100 em todos os títulos e destaques */
     h1, h2, h3, h4, h5, .logo, .btn-discord, .card-title, .prize-amount, .step-number {
       font-family: var(--font-title) !important;
       font-weight: 900 !important;
@@ -120,7 +110,7 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
-    /* Botão Neon Animado com Sequel 100 */
+    /* Botão Neon Animado */
     .btn-discord {
       position: relative;
       display: inline-block;
