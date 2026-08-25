@@ -4,12 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KNIGHTS CUP - Campeonato</title>
-  <!-- Fonte Gamer Profissional -->
+  
+  <!-- Fontes de Fallback (Google Fonts com estilo neogrotesco ultra-bold similar) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rajdhani:wght@600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   
   <style>
+    /* Declaração da fonte Sequel 100 Black (caso tenha o arquivo no repositório) */
+    @font-face {
+      font-family: 'Sequel 100 Black';
+      src: url('Sequel100Black-95.woff2') format('woff2'),
+           url('Sequel100Black-95.woff') format('woff'),
+           url('Sequel100Black-95.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg-dark: #0a0a0c;
       --bg-card: #121216;
@@ -17,7 +29,9 @@
       --accent-red-hover: #ff4d54;
       --text-light: #f1f2f6;
       --text-muted: #d1d8e0;
-      --font-title: 'Orbitron', sans-serif;
+      
+      /* Aplicação da fonte Sequel 100 Black para títulos */
+      --font-title: 'Sequel 100 Black', 'Archivo Black', 'Syne', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
     }
 
@@ -75,7 +89,8 @@
       font-family: var(--font-title);
       font-size: 24px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
     }
 
     .logo span {
@@ -89,7 +104,7 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
-    /* Botão Neon Animado */
+    /* Botão Neon Animado com Sequel 100 Black */
     .btn-discord {
       position: relative;
       display: inline-block;
@@ -98,11 +113,11 @@
       color: #fff;
       text-decoration: none;
       font-family: var(--font-title);
-      font-size: 0.9rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 900;
       border-radius: 6px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.5px;
       box-shadow: 0 0 15px rgba(255, 30, 39, 0.4);
       transition: all 0.3s ease;
       overflow: hidden;
@@ -132,7 +147,7 @@
 
     .btn-header {
       padding: 8px 18px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
     .hero {
@@ -142,10 +157,11 @@
 
     .hero h1 {
       font-family: var(--font-title);
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 900;
       margin-bottom: 15px;
-      letter-spacing: 4px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
       text-shadow: 0 0 25px rgba(255, 30, 39, 0.6);
       animation: fadeInDown 1s ease-out;
     }
@@ -169,12 +185,12 @@
       font-size: 2.2rem;
       font-weight: 900;
       color: var(--accent-red);
-      letter-spacing: 3px;
+      letter-spacing: -0.5px;
       margin: 70px 0 30px;
       text-transform: uppercase;
     }
 
-    /* Cards com Animações de Hover */
+    /* Cards com Sequel 100 Black nos Títulos */
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -223,8 +239,8 @@
       font-size: 1.15rem;
       color: var(--accent-red);
       margin-bottom: 8px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
       text-transform: uppercase;
     }
 
@@ -232,10 +248,10 @@
       color: #ffffff;
       font-size: 1.05rem;
       font-weight: 600;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.2px;
     }
 
-    /* Info Cards com Efeito Flutuante */
+    /* Info Cards */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -261,10 +277,10 @@
     .info-card h3 {
       font-family: var(--font-title);
       color: var(--accent-red);
-      font-size: 1.2rem;
-      font-weight: 800;
+      font-size: 1.15rem;
+      font-weight: 900;
       margin-bottom: 12px;
-      letter-spacing: 1px;
+      letter-spacing: -0.5px;
       text-transform: uppercase;
     }
 
@@ -281,7 +297,7 @@
       font-weight: 500;
     }
 
-    /* Seção Premiação com Destaque Neon */
+    /* Premiação */
     .prize-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -309,19 +325,20 @@
       color: var(--text-light);
       font-size: 1.1rem;
       margin-bottom: 15px;
-      letter-spacing: 1px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
     }
 
     .prize-amount {
       font-family: var(--font-title);
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       font-weight: 900;
       color: var(--accent-red);
       margin-bottom: 10px;
       text-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
     }
 
-    /* Passos de Inscrição Animados */
+    /* Steps */
     .steps-container {
       max-width: 800px;
       margin: 0 auto 60px;
@@ -358,7 +375,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      font-weight: 800;
+      font-weight: 900;
       flex-shrink: 0;
       box-shadow: 0 0 10px rgba(255, 30, 39, 0.4);
     }
@@ -389,7 +406,6 @@
       font-size: 0.95rem;
     }
 
-    /* Keyframes Globais de Entrada */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
