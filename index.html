@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KNIGHTS CUP - Campeonato CS2</title>
+  <title>KNIGHTS CUP - Campeonato</title>
   <style>
     :root {
       --bg-dark: #0a0a0c;
@@ -50,16 +50,29 @@
       color: var(--accent-red);
     }
 
-    nav a {
-      color: var(--text-light);
+    .btn-discord {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: var(--accent-red);
+      color: #fff;
       text-decoration: none;
-      margin-left: 30px;
-      transition: color 0.3s ease;
-      font-weight: 500;
+      font-weight: bold;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(255, 30, 39, 0.4);
+      transition: all 0.3s ease;
     }
 
-    nav a:hover {
-      color: var(--accent-red);
+    .btn-discord:hover {
+      background-color: var(--accent-red-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(255, 30, 39, 0.7);
+    }
+
+    .btn-header {
+      padding: 8px 18px;
+      font-size: 0.85rem;
     }
 
     .hero {
@@ -82,26 +95,6 @@
       font-size: 1.1rem;
     }
 
-    .btn-discord {
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: var(--accent-red);
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 0 15px rgba(255, 30, 39, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .btn-discord:hover {
-      background-color: var(--accent-red-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(255, 30, 39, 0.7);
-    }
-
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -111,7 +104,6 @@
       text-transform: uppercase;
     }
 
-    /* Cards Principais com Fotos */
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -167,7 +159,6 @@
       font-size: 0.9rem;
     }
 
-    /* Grade de Informações Gerais */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -208,7 +199,6 @@
       font-size: 0.85rem;
     }
 
-    /* Seção Premiação */
     .prize-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -244,7 +234,6 @@
       text-shadow: 0 0 10px rgba(255, 30, 39, 0.4);
     }
 
-    /* Passos de Inscrição */
     .steps-container {
       max-width: 800px;
       margin: 0 auto 60px;
@@ -312,27 +301,22 @@
 
   <header>
     <div class="logo">KNIGHTS <span>CUP</span></div>
-    <nav>
-      <a href="#info">Informações</a>
-      <a href="#premiacao">Premiação</a>
-      <a href="#inscricao">Inscrição</a>
-    </nav>
+    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord btn-header">ENTRAR NO DISCORD</a>
   </header>
 
   <section class="hero">
-    <h1>KNIGHTS CUP CS2</h1>
+    <h1>KNIGHTS CUP</h1>
     <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
-    <a href="#inscricao" class="btn-discord">GARANTIR VAGA NO DISCORD</a>
+    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">GARANTIR VAGA NO DISCORD</a>
   </section>
 
-  <!-- Cards com Foto -->
   <section class="cards-container">
     <div class="card">
       <div class="card-img-wrapper">
-        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Espírito Desportivo">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Espírito Esportivo">
       </div>
       <div class="card-content">
-        <div class="card-title">ESPÍRITO DESPORTIVO</div>
+        <div class="card-title">ESPÍRITO ESPORTIVO</div>
         <div class="card-desc">Respeito e Cumprimento Entre os Grandes Nomes</div>
       </div>
     </div>
@@ -358,7 +342,6 @@
     </div>
   </section>
 
-  <!-- Seção Informações (Plataforma, Formato, Inscrição) -->
   <section id="info" class="info-grid">
     <div class="info-card">
       <h3>Plataforma</h3>
@@ -379,7 +362,6 @@
     </div>
   </section>
 
-  <!-- Seção Premiação -->
   <h2 id="premiacao" class="section-title">PREMIAÇÃO</h2>
   <section class="prize-container">
     <div class="prize-card">
@@ -395,7 +377,6 @@
     </div>
   </section>
 
-  <!-- Seção Como Fazer a Inscrição -->
   <h2 id="inscricao" class="section-title">COMO FAZER A INSCRIÇÃO</h2>
   <section class="steps-container">
     <div class="step-item">
@@ -424,7 +405,7 @@
   </section>
 
   <div class="cta-container">
-    <a href="#" class="btn-discord">INSCREVER MINHA EQUIPE</a>
+    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">INSCREVER MINHA EQUIPE</a>
   </div>
 
   <footer>
