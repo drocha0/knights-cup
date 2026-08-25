@@ -14,7 +14,8 @@
     /* Declaração exata para o arquivo Sequel100Black-95.ttf */
     @font-face {
       font-family: 'Sequel 100 Black';
-      src: url('Sequel100Black-95.ttf') format('truetype');
+      src: url('./Sequel100Black-95.ttf') format('truetype'),
+           url('Sequel100Black-95.ttf') format('truetype');
       font-weight: 900;
       font-style: normal;
       font-display: swap;
@@ -28,8 +29,8 @@
       --text-light: #f1f2f6;
       --text-muted: #d1d8e0;
       
-      /* Fonte Sequel 100 definida como principal */
-      --font-title: 'Sequel 100 Black', 'Archivo Black', 'Syne', sans-serif;
+      /* Fonte Rajdhani definida para títulos em caixa mista igual a print */
+      --font-title: 'Rajdhani', 'Sequel 100 Black', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
     }
 
@@ -51,12 +52,12 @@
       overflow-x: hidden;
     }
 
-    /* Aplicação da Sequel 100 em todos os títulos e destaques */
+    /* Aplicação dos Títulos em Caixa Mista (sem força de maiúsculas) */
     h1, h2, h3, h4, h5, .logo, .btn-discord, .card-title, .prize-amount, .step-number {
       font-family: var(--font-title) !important;
-      font-weight: 900 !important;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
+      font-weight: 700 !important;
+      text-transform: none !important; /* Permite maiúsculas e minúsculas juntas */
+      letter-spacing: 0px;
     }
 
     /* Animação do Fundo Hero */
@@ -96,7 +97,8 @@
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 26px;
+      font-weight: 800 !important;
     }
 
     .logo span {
@@ -118,7 +120,7 @@
       background-color: var(--accent-red);
       color: #fff;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 1rem;
       border-radius: 6px;
       box-shadow: 0 0 15px rgba(255, 30, 39, 0.4);
       transition: all 0.3s ease;
@@ -149,7 +151,7 @@
 
     .btn-header {
       padding: 8px 18px;
-      font-size: 0.75rem;
+      font-size: 0.9rem;
     }
 
     .hero {
@@ -160,7 +162,6 @@
     .hero h1 {
       font-size: 3.8rem;
       margin-bottom: 15px;
-      letter-spacing: -1px;
       text-shadow: 0 0 25px rgba(255, 30, 39, 0.6);
       animation: fadeInDown 1s ease-out;
     }
@@ -230,15 +231,16 @@
     }
 
     .card-title {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--accent-red);
       margin-bottom: 8px;
     }
 
     .card-desc {
       color: #ffffff;
-      font-size: 1.05rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--font-title);
     }
 
     /* Info Cards */
@@ -283,21 +285,22 @@
 
     .info-card h3 {
       color: var(--accent-red);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       margin-bottom: 12px;
     }
 
     .info-card p.highlight {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 5px;
+      font-family: var(--font-title);
     }
 
     .info-card p.subtext {
       color: var(--text-muted);
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     /* Premiação */
@@ -325,7 +328,7 @@
 
     .prize-card h4 {
       color: var(--text-light);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 15px;
     }
 
@@ -389,15 +392,15 @@
     }
 
     .step-info h5 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #fff;
       margin-bottom: 3px;
     }
 
     .step-info p {
       color: var(--text-muted);
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 1.05rem;
+      font-weight: 600;
     }
 
     .cta-container {
@@ -445,14 +448,14 @@
 
   <header>
     <div class="logo">KNIGHTS <span>CUP</span></div>
-    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord btn-header">ENTRAR NO DISCORD</a>
+    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord btn-header">Entrar no Discord</a>
   </header>
 
   <div class="hero-bg-animated">
     <section class="hero">
       <h1>KNIGHTS CUP</h1>
       <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
-      <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">GARANTIR VAGA NO DISCORD</a>
+      <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">Garantir Vaga no Discord</a>
     </section>
   </div>
 
@@ -462,7 +465,7 @@
         <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Espírito Esportivo">
       </div>
       <div class="card-content">
-        <div class="card-title">ESPÍRITO ESPORTIVO</div>
+        <div class="card-title">Espírito Esportivo</div>
         <div class="card-desc">Respeito e Cumprimento Entre os Grandes Nomes</div>
       </div>
     </div>
@@ -472,7 +475,7 @@
         <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Transmissões de Elite">
       </div>
       <div class="card-content">
-        <div class="card-title">TRANSMISSÕES DE ELITE</div>
+        <div class="card-title">Transmissões de Elite</div>
         <div class="card-desc">Sinta a Emoção da Arena em Cada Round</div>
       </div>
     </div>
@@ -482,7 +485,7 @@
         <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80" alt="Buscar a Glória">
       </div>
       <div class="card-content">
-        <div class="card-title">BUSCAR A GLÓRIA</div>
+        <div class="card-title">Buscar a Glória</div>
         <div class="card-desc">Suba ao Pódio e Escreva Sua História</div>
       </div>
     </div>
@@ -508,7 +511,7 @@
     </div>
   </section>
 
-  <h2 id="premiacao" class="section-title reveal">PREMIAÇÃO</h2>
+  <h2 id="premiacao" class="section-title reveal">Premiação</h2>
   <section class="prize-container reveal">
     <div class="prize-card">
       <h4>🥇 1º Lugar - Campeão</h4>
@@ -523,7 +526,7 @@
     </div>
   </section>
 
-  <h2 id="inscricao" class="section-title reveal">COMO FAZER A INSCRIÇÃO</h2>
+  <h2 id="inscricao" class="section-title reveal">Como Fazer a Inscrição</h2>
   <section class="steps-container reveal">
     <div class="step-item">
       <div class="step-number">1</div>
@@ -551,7 +554,7 @@
   </section>
 
   <div class="cta-container reveal">
-    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">INSCREVER MINHA EQUIPE</a>
+    <a href="https://discord.gg/DtCrqknBa" target="_blank" class="btn-discord">Inscrever Minha Equipe</a>
   </div>
 
   <footer>
