@@ -99,6 +99,24 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
+    /* Estilo da Logo em Modo Paisagem no Topo */
+    .hero-logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-logo-img {
+      max-width: 450px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(255, 30, 39, 0.5));
+      border-radius: 12px;
+    }
+
     /* Botão Neon Animado */
     .btn-discord {
       position: relative;
@@ -144,15 +162,7 @@
 
     .hero {
       text-align: center;
-      padding: 90px 20px 70px;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      text-shadow: 0 0 25px rgba(255, 30, 39, 0.6);
-      animation: fadeInDown 1s ease-out;
+      padding: 70px 20px 70px;
     }
 
     .hero p {
@@ -454,7 +464,10 @@
 
   <div class="hero-bg-animated">
     <section class="hero">
-      <h1>KNIGHTS CUP</h1>
+      <!-- Imagem da Logo em formato paisagem aplicada no topo -->
+      <div class="hero-logo-container">
+        <img src="logo-paisagem.png" alt="KNIGHTS CUP Logo" class="hero-logo-img">
+      </div>
       <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
       <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord">Garantir Vaga no Discord</a>
     </section>
