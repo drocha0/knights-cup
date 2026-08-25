@@ -46,29 +46,6 @@
       text-transform: none !important;
     }
 
-    /* Animação do Fundo Hero */
-    .hero-bg-animated {
-      position: relative;
-    }
-    
-    .hero-bg-animated::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 30, 39, 0.25) 0%, transparent 70%);
-      z-index: -1;
-      animation: pulseGlow 4s infinite alternate ease-in-out;
-    }
-
-    @keyframes pulseGlow {
-      0% { opacity: 0.4; transform: translateX(-50%) scale(0.9); }
-      100% { opacity: 0.9; transform: translateX(-50%) scale(1.1); }
-    }
-
     header {
       display: flex;
       justify-content: space-between;
@@ -99,22 +76,29 @@
       100% { text-shadow: 0 0 15px rgba(255, 30, 39, 1); }
     }
 
-    /* Logo grande e destacada em formato paisagem */
+    /* Logo centralizada e compacta sem brilho de fundo */
+    .hero {
+      text-align: center;
+      padding: 40px 20px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .hero-logo-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 30px;
-      animation: fadeInDown 1s ease-out;
+      margin-bottom: 20px;
       width: 100%;
     }
 
     .hero-logo-img {
-      max-width: 650px;
-      width: 90%;
+      max-width: 420px;
+      width: 85%;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 30px rgba(255, 30, 39, 0.7));
     }
 
     /* Botão Neon Animado */
@@ -160,16 +144,11 @@
       font-size: 1rem;
     }
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px 70px;
-    }
-
     .hero p {
       color: var(--text-muted);
       max-width: 600px;
-      margin: 0 auto 30px;
-      font-size: 1.35rem;
+      margin: 0 auto 25px;
+      font-size: 1.25rem;
       font-weight: 600;
       animation: fadeInUp 1s ease-out 0.2s both;
     }
@@ -432,12 +411,6 @@
       color: #fff;
     }
 
-    /* Keyframes */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -462,16 +435,14 @@
     <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord btn-header">Entrar no Discord</a>
   </header>
 
-  <div class="hero-bg-animated">
-    <section class="hero">
-      <!-- LOGO GRANDE EM FORMATO PAISAGEM NO TOPO -->
-      <div class="hero-logo-container">
-        <img src="logo-paisagem.png" alt="KNIGHTS CUP Logo" class="hero-logo-img">
-      </div>
-      <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
-      <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord">Garantir Vaga no Discord</a>
-    </section>
-  </div>
+  <section class="hero">
+    <!-- LOGO CENTRALIZADA E COMPACTA NO TOPO -->
+    <div class="hero-logo-container">
+      <img src="logo-paisagem.png" alt="KNIGHTS CUP Logo" class="hero-logo-img">
+    </div>
+    <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
+    <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord">Garantir Vaga no Discord</a>
+  </section>
 
   <section class="cards-container reveal">
     <div class="card">
