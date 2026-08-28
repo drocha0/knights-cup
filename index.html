@@ -39,16 +39,11 @@
             padding-top: var(--header-height);
         }
 
-        h1, h2, h3, .brand-logo {
+        h2, h3 {
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -0.5px;
             color: var(--text-main);
-        }
-
-        h1 {
-            font-size: 3rem;
-            line-height: 1.1;
         }
 
         h2 {
@@ -105,16 +100,19 @@
             padding: 0 60px;
         }
 
+        /* Logotipo do Cabeçalho atualizado */
         .brand-logo {
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--accent-blue);
             display: flex;
             align-items: center;
-            gap: 10px;
             text-decoration: none;
             transition: transform 0.3s ease;
-            text-shadow: 0 0 12px var(--accent-blue-glow);
+        }
+
+        .brand-logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--accent-blue-glow));
         }
 
         .brand-logo:hover {
@@ -155,9 +153,10 @@
             scroll-margin-top: var(--header-height);
         }
 
+        /* Hero ajustado e compacto sem os textos antigos */
         .hero {
-            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, var(--bg-dark) 100%), #000000;
-            padding: 60px 40px 50px;
+            background: var(--bg-dark);
+            padding: 25px 40px 15px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
@@ -166,28 +165,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 25px;
         }
 
         .hero-logo-img {
-            max-width: 450px;
+            max-width: 400px;
             width: 90%;
             height: auto;
             object-fit: contain;
             filter: drop-shadow(0 0 20px rgba(0, 136, 255, 0.4));
-        }
-
-        .hero h1 {
-            color: #ffffff;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px var(--accent-blue-glow);
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            text-transform: uppercase;
         }
 
         .grid-cards {
@@ -380,9 +365,6 @@
                 flex-direction: column;
                 gap: 12px;
             }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
             .bracket-wrapper {
                 flex-direction: column;
             }
@@ -397,7 +379,10 @@
 
     <header>
         <div class="nav-container">
-            <a href="#inicio" class="brand-logo">🛡️ KNIGHTS CUP</a>
+            <!-- Escudo/Logo no cabeçalho substituído pela imagem -->
+            <a href="#inicio" class="brand-logo">
+                <img src="logo-paisagem.png" alt="Knights Cup Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#inicio" class="nav-link active">Início</a></li>
                 <li><a href="#inscricao" class="nav-link">Inscrição</a></li>
@@ -412,11 +397,10 @@
         <div class="hero-logo-container">
             <img src="logo-paisagem.png" alt="Knights Cup Logo" class="hero-logo-img">
         </div>
-        <h1>KNIGHTS CUP 1.0</h1>
-        <p>Campeonato Amador</p>
     </section>
 
     <div class="main-container">
+        <!-- 1. Cards de Informações / Premiações -->
         <div class="grid-cards">
             <div class="card">
                 <h3>Taxa de Inscrição</h3>
@@ -440,6 +424,7 @@
             </div>
         </div>
 
+        <!-- 2. Inscrições Oficiais -->
         <section id="inscricao">
             <div class="format-box" style="text-align: center; padding: 40px 20px;">
                 <h2>Inscrições Oficiais</h2>
@@ -456,6 +441,7 @@
             </div>
         </section>
 
+        <!-- 3. Estrutura da Competição -->
         <section id="formato">
             <div class="format-box">
                 <h2>Estrutura da Competição</h2>
@@ -496,6 +482,7 @@
             </div>
         </section>
 
+        <!-- 4. Regras Oficiais -->
         <section id="regulamento">
             <div class="format-box">
                 <h2>Regras Oficiais</h2>
@@ -512,6 +499,7 @@
             </div>
         </section>
 
+        <!-- 5. Sobre o Torneio -->
         <section id="sobre">
             <div class="format-box">
                 <h2>Sobre o Torneio</h2>
