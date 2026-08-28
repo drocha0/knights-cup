@@ -1,509 +1,562 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KNIGHTS CUP - Campeonato</title>
-  
-  <!-- Fonte Rajdhani -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-dark: #0a0a0c;
-      --bg-card: #121216;
-      --accent-blue: #1e88ff;
-      --accent-blue-hover: #4da3ff;
-      --text-light: #f1f2f6;
-      --text-muted: #d1d8e0;
-      
-      --font-main: 'Rajdhani', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knights Cup | CS2 Championship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0a;
+            --accent-blue: #0088ff;
+            --accent-blue-glow: rgba(0, 136, 255, 0.25);
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+            --border-color: #1f1f1f;
+            --discord-color: #5865F2;
+            --header-height: 90px;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: var(--font-main) !important;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Druk Wide', 'Unbounded', sans-serif !important;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-      font-family: var(--font-main);
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: var(--header-height);
+        }
 
-    h1, h2, h3, h4, h5, p, span, a, div, .logo, .btn-discord, .card-title, .prize-amount, .step-number {
-      font-family: var(--font-main) !important;
-      text-transform: none !important;
-    }
+        h1, h2, h3, .brand-logo {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      background: rgba(10, 10, 12, 0.95);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(30, 136, 255, 0.2);
-      backdrop-filter: blur(10px);
-    }
+        h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+        }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+        h2 {
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+            cursor: default;
+        }
 
-    .logo span {
-      color: var(--accent-blue);
-      display: inline-block;
-      animation: logoGlow 2s infinite alternate;
-    }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 4px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-blue);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
 
-    @keyframes logoGlow {
-      0% { text-shadow: 0 0 5px rgba(30, 136, 255, 0.5); }
-      100% { text-shadow: 0 0 15px rgba(30, 136, 255, 1); }
-    }
+        h2:hover {
+            color: var(--accent-blue);
+        }
 
-    /* Faixa Azul Estilizada (Banner) para a Logo */
-    .hero-banner {
-      width: 100%;
-      background: linear-gradient(135deg, rgba(14, 22, 38, 0.9) 0%, rgba(10, 10, 12, 0.95) 100%);
-      border-top: 1px solid rgba(30, 136, 255, 0.3);
-      border-bottom: 1px solid rgba(30, 136, 255, 0.3);
-      padding: 45px 20px;
-      box-shadow: inset 0 0 40px rgba(30, 136, 255, 0.08), 0 10px 30px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
+        h2:hover::after {
+            width: 100%;
+        }
 
-    /* Efeito de brilho neon sutil atrás da faixa */
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 180px;
-      background: radial-gradient(ellipse, rgba(30, 136, 255, 0.2) 0%, transparent 70%);
-      z-index: 1;
-      pointer-events: none;
-    }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 0 20px 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        .nav-container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+        }
 
-    .hero-logo-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      position: relative;
-      z-index: 2;
-    }
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            text-shadow: 0 0 12px var(--accent-blue-glow);
+        }
 
-    .hero-logo-img {
-      max-width: 450px;
-      width: 85%;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 20px rgba(30, 136, 255, 0.4));
-    }
+        .brand-logo:hover {
+            transform: scale(1.03);
+        }
 
-    /* Botão Neon Azul Animado */
-    .btn-discord {
-      position: relative;
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: var(--accent-blue);
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 6px;
-      box-shadow: 0 0 15px rgba(30, 136, 255, 0.4);
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
 
-    .btn-discord::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.3), transparent);
-      transform: rotate(30deg) translateY(-100%);
-      transition: transform 0.6s ease;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
 
-    .btn-discord:hover::after {
-      transform: rotate(30deg) translateY(100%);
-    }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-blue);
+            background: var(--accent-blue-glow);
+            box-shadow: 0 0 12px var(--accent-blue-glow);
+        }
 
-    .btn-discord:hover {
-      background-color: var(--accent-blue-hover);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 30px rgba(30, 136, 255, 0.8);
-    }
+        .main-container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-    .btn-header {
-      padding: 8px 18px;
-      font-size: 1rem;
-    }
+        section {
+            padding: 40px 0;
+            scroll-margin-top: var(--header-height);
+        }
 
-    .hero p {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 35px auto 25px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
+        .hero {
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, var(--bg-dark) 100%), #000000;
+            padding: 90px 40px 70px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    .hero .btn-discord {
-      animation: fadeInUp 1s ease-out 0.4s both;
-    }
+        .hero h1 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px var(--accent-blue-glow);
+        }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-      margin: 50px 0 30px;
-    }
+        .hero p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+        }
 
-    /* Info Cards */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 0 8% 40px;
-    }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            margin-top: 30px;
+        }
 
-    .info-card {
-      background-color: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 25px;
-      text-align: center;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(30, 136, 255, 0.1), transparent);
-      transition: left 0.6s ease;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 5px 20px var(--accent-blue-glow);
+        }
 
-    .info-card:hover::before {
-      left: 100%;
-    }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-blue);
+        }
 
-    .info-card:hover {
-      border-color: var(--accent-blue);
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(30, 136, 255, 0.3);
-    }
+        .card h3 {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-    .info-card h3 {
-      color: var(--accent-blue);
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+        .card .value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-blue);
+        }
 
-    .info-card p.highlight {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 5px;
-    }
+        .format-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
 
-    .info-card p.subtext {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
+        .format-box p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
 
-    /* Premiação */
-    .prize-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      padding: 0 8% 40px;
-    }
+        .format-list {
+            list-style: none;
+        }
 
-    .prize-card {
-      background-color: var(--bg-card);
-      border: 1px solid rgba(30, 136, 255, 0.3);
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+        .format-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
 
-    .prize-card:hover {
-      transform: scale(1.05) translateY(-5px);
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 35px rgba(30, 136, 255, 0.5);
-    }
+        .format-list li::before {
+            content: 'âš¡';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
 
-    .prize-card h4 {
-      color: var(--text-light);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
+        .bracket-wrapper {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
 
-    .prize-amount {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-      margin-bottom: 10px;
-      text-shadow: 0 0 12px rgba(30, 136, 255, 0.5);
-      transition: transform 0.3s ease;
-    }
+        .bracket-column {
+            flex: 1;
+            min-width: 250px;
+        }
 
-    .prize-card:hover .prize-amount {
-      transform: scale(1.1);
-    }
+        .matchup {
+            background: #111111;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 12px 0;
+            padding: 12px;
+            transition: border-color 0.3s ease;
+        }
 
-    .prize-card p.subtext {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
+        .matchup:hover {
+            border-color: var(--accent-blue);
+        }
 
-    /* Passos de Inscrição */
-    .steps-container {
-      max-width: 800px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+        .team {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
 
-    .step-item {
-      background-color: var(--bg-card);
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.4s ease;
-    }
+        .team.winner {
+            color: var(--accent-blue);
+        }
 
-    .step-item:hover {
-      border-color: var(--accent-blue);
-      transform: translateX(12px);
-      box-shadow: -5px 0 20px rgba(30, 136, 255, 0.25);
-    }
+        .btn-action {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 0.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--accent-blue-glow);
+        }
 
-    .step-number {
-      background-color: var(--accent-blue);
-      color: #fff;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(30, 136, 255, 0.5);
-      transition: all 0.4s ease;
-    }
+        .btn-action:hover {
+            background: #33a0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 136, 255, 0.5);
+        }
 
-    .step-item:hover .step-number {
-      transform: rotate(360deg) scale(1.1);
-      box-shadow: 0 0 25px rgba(30, 136, 255, 0.9);
-    }
+        .btn-discord {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--discord-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
 
-    .step-info h5 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 3px;
-    }
+        .btn-discord:hover {
+            background-color: #4752C4;
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+        }
 
-    .step-info p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
+        .btn-discord svg {
+            fill: #ffffff;
+        }
 
-    .cta-container {
-      text-align: center;
-      margin-bottom: 80px;
-    }
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 40px;
+            background: #000000;
+        }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      font-weight: 700;
-      transition: color 0.3s ease;
-    }
-
-    footer:hover {
-      color: #fff;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+        @media (max-width: 850px) {
+            :root {
+                --header-height: 140px;
+            }
+            .nav-container, .main-container, .hero {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .bracket-wrapper {
+                flex-direction: column;
+            }
+            .nav-links a {
+                font-size: 0.7rem;
+                padding: 6px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">KNIGHTS <span>CUP</span></div>
-    <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord btn-header">Entrar no Discord</a>
-  </header>
+    <header>
+        <div class="nav-container">
+            <a href="#inicio" class="brand-logo">ðŸ›¡ï¸ KNIGHTS CUP</a>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="nav-link active">InÃ­cio</a></li>
+                <li><a href="#inscricao" class="nav-link">InscriÃ§Ã£o</a></li>
+                <li><a href="#formato" class="nav-link">Formato</a></li>
+                <li><a href="#regulamento" class="nav-link">Regulamento</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <!-- Faixa Azul com Efeito e Logo Centralizada -->
-  <div class="hero-banner">
-    <div class="hero-logo-container">
-      <img src="logo-paisagem.png" alt="KNIGHTS CUP Logo" class="hero-logo-img">
+    <section id="inicio" class="hero">
+        <h1>KNIGHTS CUP 1.0</h1>
+        <p>Campeonato Amador</p>
+    </section>
+
+    <div class="main-container">
+        <!-- 1. Cards de InformaÃ§Ãµes / PremiaÃ§Ãµes -->
+        <div class="grid-cards">
+            <div class="card">
+                <h3>Taxa de InscriÃ§Ã£o</h3>
+                <div class="value">R$ 25</div>
+            </div>
+            <div class="card">
+                <h3>PremiaÃ§Ã£o 1Âº Lugar</h3>
+                <div class="value">R$ 250</div>
+            </div>
+            <div class="card">
+                <h3>PremiaÃ§Ã£o 2Âº Lugar</h3>
+                <div class="value">R$ 50</div>
+            </div>
+            <div class="card">
+                <h3>Vagas</h3>
+                <div class="value">16 Equipes</div>
+            </div>
+            <div class="card">
+                <h3>Plataforma</h3>
+                <div class="value">Xplay.GG</div>
+            </div>
+        </div>
+
+        <!-- 2. InscriÃ§Ãµes Oficiais -->
+        <section id="inscricao">
+            <div class="format-box" style="text-align: center; padding: 40px 20px;">
+                <h2>InscriÃ§Ãµes Oficiais</h2>
+                <p style="color: var(--text-muted); margin: 20px auto; max-width: 650px;">
+                    InscriÃ§Ãµes, suporte e dÃºvidas sÃ£o gerenciados <strong style="color: #ffffff;">exclusivamente atravÃ©s do Discord oficial.</strong>
+                </p>
+
+                <a href="https://discord.gg/zYpqDvWP9" target="_blank" class="btn-discord">
+                    <svg width="24" height="24" viewBox="0 0 127.14 96.36">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.58,67.58,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </svg>
+                    Entrar no Discord
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. Estrutura da CompetiÃ§Ã£o -->
+        <section id="formato">
+            <div class="format-box">
+                <h2>Estrutura da CompetiÃ§Ã£o</h2>
+                <ul class="format-list" style="margin-top: 20px;">
+                    <li><strong style="color: var(--accent-blue);">Fase de Grupos:</strong> 16 times divididos em 4 grupos (GSL Format). Partidas MD1.</li>
+                    <li><strong style="color: var(--accent-blue);">Playoffs:</strong> Os 2 melhores de cada grupo avanÃ§am para a EliminaÃ§Ã£o Simples (MD3).</li>
+                    <li><strong style="color: var(--accent-blue);">Grande Final:</strong> Disputada em melhor de 5 mapas (MD5).</li>
+                </ul>
+
+                <h2 style="margin-top: 35px;">Chaveamento</h2>
+                <div class="bracket-wrapper">
+                    <div class="bracket-column">
+                        <h3 style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: 5px;">Quartas de Final</h3>
+                        <div class="matchup">
+                            <div class="team winner"><span>Knights Gaming</span> <span>2</span></div>
+                            <div class="team"><span>Valkyrie eSports</span> <span>0</span></div>
+                        </div>
+                        <div class="matchup">
+                            <div class="team winner"><span>Shadow Squad</span> <span>2</span></div>
+                            <div class="team"><span>Alpha Team</span> <span>1</span></div>
+                        </div>
+                    </div>
+                    <div class="bracket-column">
+                        <h3 style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: 5px;">Semifinais</h3>
+                        <div class="matchup">
+                            <div class="team winner"><span>Knights Gaming</span> <span>2</span></div>
+                            <div class="team"><span>Shadow Squad</span> <span>1</span></div>
+                        </div>
+                    </div>
+                    <div class="bracket-column">
+                        <h3 style="color: var(--accent-blue); font-size: 0.75rem; margin-bottom: 5px;">Grande Final</h3>
+                        <div class="matchup" style="border-color: var(--accent-blue);">
+                            <div class="team winner"><span>Knights Gaming</span> <span>-</span></div>
+                            <div class="team"><span>TBD</span> <span>-</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Regras Oficiais -->
+        <section id="regulamento">
+            <div class="format-box">
+                <h2>Regras Oficiais</h2>
+                <ul class="format-list" style="margin-top: 20px;">
+                    <li><strong style="color: var(--accent-blue);">Elegibilidade:</strong> Anti-Cheat oficial da Gamers Club obrigatÃ³rio.</li>
+                    <li><strong style="color: var(--accent-blue);">Pontualidade:</strong> Atrasos superiores a 15 minutos geram W.O.</li>
+                    <li><strong style="color: var(--accent-blue);">Conduta:</strong> Comportamento tÃ³xico resulta em desclassificaÃ§Ã£o imediata.</li>
+                    <li><strong style="color: var(--accent-blue);">Pause tÃ©cnico:</strong> AtÃ© 5 minutos por mapa.</li>
+                </ul>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-action" onclick="alert('Download iniciado.')">ðŸ“„ Baixar Regulamento (PDF)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Sobre o Torneio -->
+        <section id="sobre">
+            <div class="format-box">
+                <h2>Sobre o Torneio</h2>
+                <p style="margin-top: 15px; color: var(--text-muted);">
+                    A <strong style="color: #ffffff;">Knights Cup</strong> nasce com um DNA Ãºnico no cenÃ¡rio de esportes eletrÃ´nicos. Embora estejamos estreando agora no universo competitivo de Counter-Strike 2, nossa trajetÃ³ria de anos organizando e gerindo campeonatos no cenÃ¡rio mobile nos trouxe uma bagagem sÃ³lida em excelÃªncia operacional, transparÃªncia e respeito aos atletas. Trazemos toda a nossa expertise de anos gerando grandes emoÃ§Ãµes nas telas de celulares para o ecossistema do PC. Sabemos exatamente o que uma equipe e um jogador competitivo buscam.
+                </p>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <section class="hero">
-    <p>Fair play, respeito e competição de elite. Monte sua equipe e mostre do que é capaz no cenário profissional!</p>
-    <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord">Garantir Vaga no Discord</a>
-  </section>
+    <footer>
+        <p>&copy; 2026 Knights Cup CS2. Todos os direitos reservados.</p>
+    </footer>
 
-  <section id="info" class="info-grid reveal">
-    <div class="info-card">
-      <h3>Plataforma</h3>
-      <p class="highlight">XPlay.GG</p>
-      <p class="subtext">Servidores de Alta Performance e Anticheat Garantido</p>
-    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".nav-link, .brand-logo");
+            const sections = document.querySelectorAll("section[id]");
 
-    <div class="info-card">
-      <h3>Formato</h3>
-      <p class="highlight">5v5 Competitivo</p>
-      <p class="subtext">Fase de Grupos + Fase Eliminatória<br>🎥 Transmissão Ao Vivo das Partidas</p>
-    </div>
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId.startsWith("#")) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            const headerOffset = document.querySelector("header").offsetHeight;
+                            const elementPosition = targetSection.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    <div class="info-card">
-      <h3>Inscrição</h3>
-      <p class="prize-amount" style="font-size: 2.2rem;">R$ 25,00</p>
-      <p class="subtext">Valor total por equipe (5 Jogadores + Reservas)</p>
-    </div>
-  </section>
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
 
-  <h2 id="premiacao" class="section-title reveal">Premiação</h2>
-  <section class="prize-container reveal">
-    <div class="prize-card">
-      <h4>🥇 1º Lugar - Campeão</h4>
-      <div class="prize-amount">R$ 250,00</div>
-      <p class="subtext">Premiação em dinheiro direto via PIX + Destaque oficial de campeão.</p>
-    </div>
+            window.addEventListener("scroll", function () {
+                let current = "";
+                const headerOffset = document.querySelector("header").offsetHeight + 50;
 
-    <div class="prize-card">
-      <h4>🥈 2º Lugar - Vice</h4>
-      <div class="prize-amount" style="font-size: 2.2rem;">Vaga Garantida</div>
-      <p class="subtext">Inscrição 100% gratuita para disputar a próxima edição da Knights Cup.</p>
-    </div>
-  </section>
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerOffset;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute("id");
+                    }
+                });
 
-  <h2 id="inscricao" class="section-title reveal">Como Fazer a Inscrição</h2>
-  <section class="steps-container reveal">
-    <div class="step-item">
-      <div class="step-number">1</div>
-      <div class="step-info">
-        <h5>Acesse nosso Discord Oficial</h5>
-        <p>Entre no servidor do campeonato clicando no botão abaixo.</p>
-      </div>
-    </div>
-
-    <div class="step-item">
-      <div class="step-number">2</div>
-      <div class="step-info">
-        <h5>Abra um Ticket de Inscrição</h5>
-        <p>Vá até a aba de inscrições e abra um chamado privado com a organização.</p>
-      </div>
-    </div>
-
-    <div class="step-item">
-      <div class="step-number">3</div>
-      <div class="step-info">
-        <h5>Efetue o PIX de R$ 25,00</h5>
-        <p>Envie o comprovante de pagamento e os dados do seu time para confirmar sua vaga.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-container reveal">
-    <a href="https://discord.gg/NYR5Fq5q8" target="_blank" class="btn-discord">Inscrever Minha Equipe</a>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 KNIGHTS CUP. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal');
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 100;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        }
-      }
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-  </script>
-
+                document.querySelectorAll(".nav-link").forEach(a => {
+                    a.classList.remove("active");
+                    if (a.getAttribute("href") === "#" + current) {
+                        a.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
