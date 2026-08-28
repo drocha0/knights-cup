@@ -100,19 +100,29 @@
             padding: 0 60px;
         }
 
-        /* Logotipo do Cabeçalho atualizado */
+        /* Estilo do Logo/Símbolo no Cabeçalho */
         .brand-logo {
             display: flex;
             align-items: center;
+            gap: 12px;
             text-decoration: none;
             transition: transform 0.3s ease;
         }
 
         .brand-logo img {
-            height: 45px;
+            height: 42px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 0 8px var(--accent-blue-glow));
+        }
+
+        .brand-text {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 12px var(--accent-blue-glow);
         }
 
         .brand-logo:hover {
@@ -153,10 +163,10 @@
             scroll-margin-top: var(--header-height);
         }
 
-        /* Hero ajustado e compacto sem os textos antigos */
+        /* Hero sem espaçamento excessivo */
         .hero {
             background: var(--bg-dark);
-            padding: 25px 40px 15px;
+            padding: 15px 40px 10px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
@@ -168,8 +178,8 @@
         }
 
         .hero-logo-img {
-            max-width: 400px;
-            width: 90%;
+            max-width: 350px;
+            width: 85%;
             height: auto;
             object-fit: contain;
             filter: drop-shadow(0 0 20px rgba(0, 136, 255, 0.4));
@@ -379,9 +389,10 @@
 
     <header>
         <div class="nav-container">
-            <!-- Escudo/Logo no cabeçalho substituído pela imagem -->
+            <!-- Símbolo e texto KNIGHTS CUP no cabeçalho -->
             <a href="#inicio" class="brand-logo">
-                <img src="logo-paisagem.png" alt="Knights Cup Logo">
+                <img src="logo-paisagem.png" alt="Símbolo Knights Cup">
+                <span class="brand-text">KNIGHTS CUP</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio" class="nav-link active">Início</a></li>
